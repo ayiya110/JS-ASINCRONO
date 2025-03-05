@@ -84,30 +84,3 @@ document.getElementById("btnAxios").addEventListener("click", function () {
         });
 });
 
-// Funciones en ES5
-function cargarXHR() {
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", "https://jsonplaceholder.typicode.com/posts/4");
-    xhr.onload = function () {
-        if (xhr.status === 200) {
-            var data = JSON.parse(xhr.responseText);
-            document.getElementById("resultadoFinal").textContent = data.title;
-        }
-    };
-    xhr.send();
-}
-
-function cargarJQuery() {
-    $.ajax({
-        url: "https://jsonplaceholder.typicode.com/posts/5",
-        success: function (data) {
-            $("#resultadoFinal").text(data.title);
-        },
-    });
-}
-
-function cargarAxios() {
-    axios.get("https://jsonplaceholder.typicode.com/posts/6").then(function (response) {
-        document.getElementById("resultadoFinal").textContent = response.data.title;
-    });
-}
